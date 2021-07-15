@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <table>
+      {% for nome, link in links.items() %}
+      <tr>
+        <th>{{ nome }}:</th>
+        <td>{{ link }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
