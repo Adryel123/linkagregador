@@ -9,15 +9,15 @@ app = Flask(__name__)
 #-----------------------------------------------------------------------
 
 accounts = {
-    'vonkakarius': '959595'
+    'holtzwallund': '959595'
 }
 
 trees = {
-    'vonkakarius': {
-        'Instagram': 'instagram.com/vonkakarius',
-        'Facebook': 'facebook.com/vonkakarius',
-        'Twitter': 'twitter.com/vonkakarius',
-        'Telegram': 'telegram.org/vonkakarius'
+    'holtzwallund': {
+        'Instagram': 'https://www.instagram.com/holtzwallund',
+        'Facebook': 'https://www.facebook.com/holtzwallund',
+        'Twitter': 'https://www.twitter.com/holtzwallund',
+        'Telegram': 'https://www.telegram.org/holtzwallund'
     }
 }
 
