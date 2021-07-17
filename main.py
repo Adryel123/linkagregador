@@ -109,6 +109,8 @@ def tree(user):
 #-----------------------------------------------------------------------
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    from livereload import Server
+    server = Server(app.wsgi_app)
+    server.serve(host='localhost', port=5000)
+    
 #-----------------------------------------------------------------------
