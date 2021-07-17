@@ -9,7 +9,10 @@ app = Flask(__name__)
 #-----------------------------------------------------------------------
 
 accounts = {
-    'holtzwallund': '959595'
+    'holtzwallund': {
+        'nome': 'Richard',
+        'senha': '959595'
+    }
 }
 
 trees = {
@@ -45,7 +48,7 @@ def save_account():
         password = request.args.get('password')
 
     global accounts
-    accounts[user] = password
+    accounts[user]['senha'] = password
     return redirect(url_for('edit', user=user))
 
 #-----------------------------------------------------------------------
@@ -65,7 +68,7 @@ def verif_login():
         user = request.args.get('user')
         password = request.args.get('password')
 
-    if user in accounts and accounts.get(user) == password:
+    if user in accounts and accounts.get(user).get('senha') == password:
         return redirect(url_for('edit', user=user))
     else:
         return 'Quem erra o login é gay'
@@ -81,7 +84,7 @@ def edit(user):
 @app.route('/<user>')
 def tree(user):
     if user in trees:
-        return render_template('tree.html', links=trees[user])
+        return render_template('tree.html', user=accounts.get(user).get('nome'), links=trees[user])
     else:
         return f'Quando houver links cadastrados pra {user}, essa página exibirá.'
 
