@@ -3,8 +3,9 @@
 #-----------------------------------------------------------------------
 
 import time
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, session, redirect, url_for, request, render_template
 app = Flask(__name__)
+app.secret_key = 'adryelehgay'
 
 #-----------------------------------------------------------------------
 
@@ -49,13 +50,18 @@ def save_account():
 
     global accounts
     accounts[user]['senha'] = password
+    session['username'] = user
     return redirect(url_for('edit', user=user))
 
 #-----------------------------------------------------------------------
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    if 'username' in session:
+        nome = accounts[session['username']]['nome']
+        return f'Você já está logado como {nome}'
+    else:
+        return render_template('login.html')
 
 #-----------------------------------------------------------------------
 
@@ -68,16 +74,28 @@ def verif_login():
         user = request.args.get('user')
         password = request.args.get('password')
 
-    if user in accounts and accounts.get(user).get('senha') == password:
+    if (user in accounts) and (accounts.get(user).get('senha') == password):
+        session['username'] = user
         return redirect(url_for('edit', user=user))
     else:
-        return 'Quem erra o login é gay'
+        return redirect(url_for('login'))
+
+#-----------------------------------------------------------------------
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('login'))
 
 #-----------------------------------------------------------------------
 
 @app.route('/edit/<user>')
 def edit(user):
-    return f'Página de edição da linktree de {user}'
+    if 'username' in session:
+        user = session['username']
+        return f'Você está logado como {user}, e essa é a página de edição'
+    else:
+        return redirect(url_for('login'))
 
 #-----------------------------------------------------------------------
 
