@@ -25,7 +25,7 @@ trees = {
 
 @app.route('/')
 def home():
-    return 'Página inicial, carecendo de html'
+    return render_template('index.html')
 
 #-----------------------------------------------------------------------
 
