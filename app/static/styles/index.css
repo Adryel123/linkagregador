@@ -108,4 +108,3 @@ h1 span:nth-child(2)::after {animation-delay: .2s;}
 .button:hover {
     background-color: var(--bt-hover);
 }
-

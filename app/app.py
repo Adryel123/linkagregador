@@ -2,7 +2,6 @@
 # Agregador de Links
 #-----------------------------------------------------------------------
 
-import time
 from flask import Flask, session, redirect, url_for, request, render_template
 app = Flask(__name__)
 app.secret_key = 'adryelehgay'
@@ -12,7 +11,7 @@ app.secret_key = 'adryelehgay'
 accounts = {
     'holtzwallund': {
         'nome': 'Richard',
-        'senha': '959595'
+        'senha': '95'
     }
 }
 
@@ -42,13 +41,18 @@ def signup():
 @app.route('/signup/save', methods=['POST', 'GET'])
 def save_account():
     if request.method == 'POST':
+        name = request.form['name']
         user = request.form['user']
         password = request.form['password']
     else:
-        user = request.args.get('user')
+        name = request.form['name']
+        user = request.form['user']
         password = request.args.get('password')
 
     global accounts
+    user = user.lower()
+    accounts[user] = {}
+    accounts[user]['nome'] = name.capitalize()
     accounts[user]['senha'] = password
     session['username'] = user
     return redirect(url_for('edit', user=user))
@@ -58,8 +62,8 @@ def save_account():
 @app.route('/login')
 def login():
     if 'username' in session:
-        nome = accounts[session['username']]['nome']
-        return f'Você já está logado como {nome}'
+        user = session['username']
+        return redirect(url_for('edit', user=user))
     else:
         return render_template('login.html')
 
@@ -93,7 +97,8 @@ def logout():
 def edit(user):
     if 'username' in session:
         user = session['username']
-        return f'Você está logado como {user}, e essa é a página de edição'
+        nome = accounts[user]['nome']
+        return f'Você está logado, {nome}, e essa é a página de edição'
     else:
         return redirect(url_for('login'))
 
