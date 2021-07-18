@@ -17,9 +17,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  background-color: #121214;
-  color: #ffffff;
-  font-family: Roboto, sans-serif;
+  font-family: Ubuntu, sans-serif;
 }
 
 h1 {

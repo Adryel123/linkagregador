@@ -2,7 +2,6 @@
 # Agregador de Links
 #-----------------------------------------------------------------------
 
-import time
 from flask import Flask, session, redirect, url_for, request, render_template
 app = Flask(__name__)
 app.secret_key = 'adryelehgay'
