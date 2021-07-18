@@ -1,3 +1,11 @@
+/* Reset de configurações */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis */
 :root {
     --bg-escuro: #2a2c41;
     --bg-claro: #474a6b;
@@ -8,15 +16,14 @@
 
 html {
     height: 100%;
-    background-image: var(--bg-gradient);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: var(--bg-gradient);
     font-size: 20px;
     font-family: "Ubuntu", sans-serif;
-    color: white;
 }
 
 .container {
+    color: white;
+
     display: flex;
     width: 1000px;
     margin: 0 auto;
