@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Link.me | Login</title>
-</head>
-<body>
-  <form action="{{ url_for('verif_login') }}" method="post">
-    <p>Usuário: <input type="text" name="user" /></p>
-    <p>Senha: <input type="password" name="password" /></p>
-    <p><input type="submit" value="Cadastrar" /></p>
-  </form>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link.me | Login</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style-forms.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Entre na sua conta</h1>
+    <form action="{{ url_for('verif_login') }}" method="post">
+      <input type="text" name="user" placeholder="Usuário" required />
+      <input type="password" name="password" placeholder="Senha" required />
+      <input type="submit" class="botao" value="Entrar" />
+    </form>
+  </body>
 </html>

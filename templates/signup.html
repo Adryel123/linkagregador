@@ -19,7 +19,8 @@
   </head>
   <body>
     <h1>Crie sua conta</h1>
-    <form action="http://localhost:5000/signup/save" method="post">
+    <form action="{{ url_for('save_account') }}" method="post">
+      <input type="text" name="name" placeholder="Nome" required />
       <input type="text" name="user" placeholder="Usuário" required />
       <input type="password" name="password" placeholder="Senha" required />
       <input type="submit" class="botao" value="Cadastrar" />
