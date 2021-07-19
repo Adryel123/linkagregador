@@ -1,111 +1,73 @@
-/* Reset de configurações */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Variáveis */
-:root {
-    --bg-escuro: #2a2c41;
-    --bg-claro: #474a6b;
-    --bt: #e62d43;
-    --bt-hover: #fa5265;
-    --bg-gradient: linear-gradient(30deg, var(--bg-escuro), var(--bg-claro));
-}
-
-html {
-    height: 100%;
-    background: var(--bg-gradient);
-    font-size: 20px;
-    font-family: "Ubuntu", sans-serif;
-}
+@import url("../styles/padrao.css");
 
 .container {
-    color: white;
-
-    display: flex;
-    width: 1000px;
-    margin: 0 auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    justify-content: space-between;
+  color: white;
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-between;
 }
 
 h1 {
-    width: 50%;
-    margin: 0;
-    font-size: 60px;
-    line-height: 1.2;
+  width: 50%;
+  margin: 0;
+  font-size: 60px;
+  line-height: 1.2;
 }
 
 h1 span {
-    position: relative;
+  position: relative;
 }
 h1 span::after {
-    content: ' ';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    top: 70%;
-    z-index: -1;
-    background: var(--bt);
-    animation: aaa 1s ease-in-out forwards;
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 70%;
+  z-index: -1;
+  background: var(--bt);
+  animation: aaa 1s ease-in-out forwards;
 }
-h1 span:nth-child(2)::after {animation-delay: .2s;}
+h1 span:nth-child(2)::after {
+  animation-delay: 0.2s;
+}
 
 @keyframes aaa {
-    0% {
-        right: 100%;
-    }
-    100% {
-        right: 0;
-    }
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 0;
+  }
 }
 
 .container__right {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .container__subtext {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1.4;
-    letter-spacing: 1px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 1px;
 }
 
 .buttons-container {
-    width: 400px;
-    margin-top: 30px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+  width: 400px;
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-.button {
-    width: 170px;
-    padding: .8rem 0;
-    background-color: var(--bt);
-    transition: background 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: transparent;
-    border-radius: 5px;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-  
-.button:hover {
-    background-color: var(--bt-hover);
+.botao {
+  width: 170px;
 }

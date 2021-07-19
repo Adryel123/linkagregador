@@ -1,23 +1,8 @@
-:root {
-  --bgescuro: #2b2d42;
-  --bgclaro: #474a6b;
-  --bt: #e62b40;
-  --bthover: #fa5467;
-}
-
-html {
-  height: 100%;
-  background-image: linear-gradient(30deg, var(--bgescuro), var(--bgclaro));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-size: 20px;
-  color: white;
-}
+@import url('../styles/padrao.css');
 
 body {
   display: flex;
   flex-direction: column;
-  font-family: Ubuntu, sans-serif;
 }
 
 h1 {
@@ -26,7 +11,7 @@ h1 {
   text-align: center;
 }
 
-#container {
+.caixa {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -36,6 +21,7 @@ h1 {
 .links {
   gap: 1rem;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,24 +29,6 @@ h1 {
 
 .botao {
   width: 250px;
-  padding: .8rem 0;
-  background-color: var(--bt);
-  transition: background 0.2s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: transparent;
-  border-radius: 5px;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.botao:hover {
-  background-color: var(--bthover);
 }
 
 a {

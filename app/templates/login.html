@@ -17,12 +17,12 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="caixa">
     <h1>Entre na sua conta</h1>
     <form action="{{ url_for('verif_login') }}" method="post">
       <input type="text" name="user" placeholder="Usuário" required />
       <input type="password" name="password" placeholder="Senha" required />
-      <input type="submit" class="botao" value="Entrar" />
+      <button type="submit" class="botao">Entrar</button>
     </form>
   </body>
 </html>

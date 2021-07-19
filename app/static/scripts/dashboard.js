@@ -1,3 +1,4 @@
+// Cria uma linha
 function criarLinha() {
   // Variáveis
   let linha = document.createElement("div");
@@ -27,10 +28,12 @@ function criarLinha() {
   document.getElementsByClassName("container_linhas")[0].appendChild(linha);
 }
 
+// Deleta uma linha
 function delLinha(event) {
   event.target.parentElement.remove();
 }
 
+// Adiciona função aos botões
 const botoes = document.querySelectorAll("button");
 
 for (var i = 0; i < botoes.length; i++) {
