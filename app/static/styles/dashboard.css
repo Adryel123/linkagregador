@@ -21,7 +21,7 @@ body {
   width: 700px;
   height: fit-content;
   padding: 50px 40px;
-  margin: 150px auto 100px auto;
+  margin: 150px auto;
   background-color: var(--bgdestaque);
   display: flex;
   flex-direction: column;
