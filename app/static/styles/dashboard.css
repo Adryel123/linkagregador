@@ -7,7 +7,8 @@
 }
 
 html {
-  height: 100%;
+  box-sizing: border-box;
+  height: fit-content;
   background-image: linear-gradient(30deg, var(--bgescuro), var(--bgclaro));
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -20,15 +21,12 @@ body {
   width: 700px;
   height: fit-content;
   padding: 50px 40px;
+  margin: 150px auto 100px auto;
   background-color: var(--bgdestaque);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border: transparent;
   border-radius: 5px;
 }
@@ -55,23 +53,23 @@ textarea {
   gap: 10px;
 }
 
-#container_linhas {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.container_linhas {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .linha {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-input[type="text"] {
-  box-sizing: border-box;
+input {
   width: 100%;
+  height: 100%;
   background-color: var(--bgclaro);
   padding: 15px 20px;
   color: white;
@@ -81,13 +79,13 @@ input[type="text"] {
 }
 
 input[placeholder="Nome"] {
-    width: 50%;
+  width: 50%;
 }
 
 input:focus {
-    outline-width: 2px;
-    outline-color: var(--bthover);
-    outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--bthover);
+  outline-style: solid;
 }
 
 ::placeholder {
@@ -108,6 +106,7 @@ input:focus {
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .botao:hover {
@@ -115,12 +114,11 @@ input:focus {
 }
 
 .botao_salvar {
-    width: 100%;
-    margin-top: 10px;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.botao_add {
-    box-sizing: border-box;
-    width: 15%;
-    height: 100%;
+.botao_add,
+.botao_sub {
+  width: 15%;
 }

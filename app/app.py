@@ -98,7 +98,7 @@ def edit(user):
     if 'username' in session:
         user = session['username']
         nome = accounts[user]['nome']
-        return f'Você está logado, {nome}, e essa é a página de edição'
+        return render_template('dashboard.html')
     else:
         return redirect(url_for('login'))
 
