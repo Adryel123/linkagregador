@@ -93,6 +93,12 @@ def logout():
 
 #-----------------------------------------------------------------------
 
+@app.route('/edit', methods=['PUT'])
+def test():
+    return 'olá'
+
+#-----------------------------------------------------------------------
+
 @app.route('/edit/<user>')
 def edit(user):
     if 'username' in session:

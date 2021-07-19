@@ -33,7 +33,19 @@ input[placeholder="Nome"] {
   margin-top: 10px;
 }
 
-.botao_add,
+.botao_add {
+  justify-content: left;
+  background-color: transparent;
+  text-transform: capitalize;
+  
+  transition: all .2s ease-in-out;
+}
+
+.botao_add:hover {
+  background-color: transparent;
+  transform: translateY(-4px);
+}
+
 .botao_sub {
   width: 15%;
 }

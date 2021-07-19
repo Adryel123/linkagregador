@@ -30,13 +30,13 @@ h1 span::after {
   top: 70%;
   z-index: -1;
   background: var(--bt);
-  animation: aaa 1s ease-in-out forwards;
+  animation: create-underline 1s ease-in-out forwards;
 }
 h1 span:nth-child(2)::after {
   animation-delay: 0.2s;
 }
 
-@keyframes aaa {
+@keyframes create-underline {
   0% {
     right: 100%;
   }

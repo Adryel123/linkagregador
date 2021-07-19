@@ -1,41 +1,69 @@
 // Cria uma linha
 function criarLinha() {
-  // Variáveis
-  let linha = document.createElement("div");
-  let nome = document.createElement("input");
-  let link = document.createElement("input");
-  let botao_add = document.createElement("button");
-  let botao_sub = document.createElement("button");
+  // Cria o elemento linha
+  const linha = document.createElement("div")
+  linha.className = 'linha'
+  linha.innerHTML = `
+    <input type="text" class="name" placeholder="Nome" />
+    <input type="text" class="url" placeholder="Link" />
+    <button class="botao botao_sub">-</button>
+  `
 
-  // Atributos
-  linha.className = "linha";
-  nome.type = "text";
-  nome.placeholder = "Nome";
-  link.type = "text";
-  link.placeholder = "Link";
-  botao_add.className = "botao botao_add";
-  botao_add.textContent = "+";
-  botao_add.addEventListener("click", criarLinha);
-  botao_sub.className = "botao botao_sub";
-  botao_sub.textContent = "-";
-  botao_sub.addEventListener("click", delLinha);
+  // Adiciona evento de remoção de linha ao botão
+  linha
+    .querySelector('.botao_sub')
+    .addEventListener("click", delLinha)
 
-  // Inserindo
-  linha.appendChild(nome);
-  linha.appendChild(link);
-  linha.appendChild(botao_add);
-  linha.appendChild(botao_sub);
-  document.getElementsByClassName("container_linhas")[0].appendChild(linha);
+  // adiciona a linha ao documento
+  document
+    .querySelector('.container_linhas')
+    .appendChild(linha)
 }
 
 // Deleta uma linha
 function delLinha(event) {
-  event.target.parentElement.remove();
+  event.target.parentElement.remove()
 }
 
-// Adiciona função aos botões
-const botoes = document.querySelectorAll("button");
+// Retorna uma lista com cada nome e url
+function capturarDados() {
+  // Array com as linhas
+  const linhas = document.querySelector('.container_linhas').childNodes
 
-for (var i = 0; i < botoes.length; i++) {
-  botoes[i].addEventListener("click", criarLinha);
+  // Para cada linha, captura nome e url
+  const links = []
+  linhas.forEach(linha => {
+    const nome = linha.querySelector('.name').value
+    const url = linha.querySelector('.url').value
+    links.push({ nome, url })
+  })
+
+  return links
+}
+
+// Faz uma requisição PUT para o endereço /edit
+// Passa no corpo os dados e o usuário
+function salvarDados() {
+  const dados = capturarDados()
+  const user = window.location.pathname.split('/')[2]
+
+  fetch('/edit', {
+    method: 'PUT',
+    body: { ...dados, user },
+  }).then(console.log)
+}
+
+// Adiciona função ao botão de adicionar linha
+document
+  .querySelector('.botao_add')
+  .addEventListener('click', criarLinha)
+
+// Adiciona função ao botão de salvar
+document
+  .querySelector('.botao_salvar')
+  .addEventListener('click', salvarDados)
+
+// Ao menos uma linha
+if (!document.querySelector('.linha')) {
+  criarLinha()
 }
