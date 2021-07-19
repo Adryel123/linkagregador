@@ -24,7 +24,7 @@ function criarLinha() {
   linha.appendChild(link);
   linha.appendChild(botao_add);
   linha.appendChild(botao_sub);
-  document.getElementsByClass("container_linhas")[0].appendChild(linha);
+  document.getElementsByClassName("container_linhas")[0].appendChild(linha);
 }
 
 function delLinha(event) {
