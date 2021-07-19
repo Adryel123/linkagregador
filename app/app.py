@@ -115,6 +115,8 @@ def tree(user):
 
 if __name__ == '__main__':
     from livereload import Server
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     server = Server(app.wsgi_app)
     server.serve(host='localhost', port=5000)
     
