@@ -93,16 +93,7 @@ def logout():
 
 #-----------------------------------------------------------------------
 
-@app.route('/edit', methods=['PUT'])
-def save_tree():
-    if request.method == 'PUT':
-        return 'Recebi a requisição'
-    else:
-        return 'Aaaaaaaaaaa'
-
-#-----------------------------------------------------------------------
-
-@app.route('/edit/<user>')
+@app.route('/dashboard/<user>')
 def edit(user):
     if 'username' in session:
         user = session['username']
@@ -110,6 +101,13 @@ def edit(user):
         return render_template('dashboard.html')
     else:
         return redirect(url_for('login'))
+    
+#-----------------------------------------------------------------------
+
+@app.route('/dashboard/<user>/save', methods=['PUT'])
+def save_tree():
+    print('aaa')
+    return 'aaaaaaaa'
 
 #-----------------------------------------------------------------------
 
