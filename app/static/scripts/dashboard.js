@@ -59,3 +59,6 @@ document.querySelector(".botao_add").addEventListener("click", criarLinha);
 
 // Adiciona função ao botão de salvar
 document.querySelector(".botao_salvar").addEventListener("click", salvarDados);
+
+// Cria a primeira linha
+criarLinha();
