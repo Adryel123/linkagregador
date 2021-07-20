@@ -94,8 +94,11 @@ def logout():
 #-----------------------------------------------------------------------
 
 @app.route('/edit', methods=['PUT'])
-def test():
-    return 'olá'
+def save_tree():
+    if request.method == 'PUT':
+        return 'Recebi a requisição'
+    else:
+        return 'Aaaaaaaaaaa'
 
 #-----------------------------------------------------------------------
 
@@ -110,7 +113,7 @@ def edit(user):
 
 #-----------------------------------------------------------------------
 
-@app.route('/<user>')
+@app.route('/tree/<user>')
 def tree(user):
     if user in trees:
         return render_template('tree.html', user=accounts.get(user).get('nome'), links=trees[user])
