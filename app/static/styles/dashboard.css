@@ -25,7 +25,7 @@ h1 {
 }
 
 input[placeholder="Nome"] {
-  width: 50%;
+  width: 35%;
 }
 
 .botao_salvar {
@@ -34,7 +34,7 @@ input[placeholder="Nome"] {
 }
 
 .botao_add {
-  justify-content: left;
+  justify-content: center;
   background-color: transparent;
   text-transform: capitalize;
   
