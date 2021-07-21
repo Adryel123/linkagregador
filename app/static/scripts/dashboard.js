@@ -46,10 +46,11 @@ function capturarDados() {
 // Passa no corpo os dados e o usuário
 function salvarDados() {
   const dados = capturarDados();
+  const user = window.location.pathname.split("/")[2];
 
-  fetch("/save", {
+  fetch("/dashboard/save", {
     method: "PUT",
-    body: { ...dados},
+    body: { ...dados, user },
   }).then(console.log);
 }
 

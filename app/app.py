@@ -55,7 +55,7 @@ def save_account():
     accounts[user]['nome'] = name.capitalize()
     accounts[user]['senha'] = password
     session['username'] = user
-    return redirect(url_for('edit', user=user))
+    return redirect(url_for('edit'))
 
 #-----------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ def save_account():
 def login():
     if 'username' in session:
         user = session['username']
-        return redirect(url_for('edit', user=user))
+        return redirect(url_for('edit'))
     else:
         return render_template('login.html')
 
@@ -80,7 +80,7 @@ def verif_login():
 
     if (user in accounts) and (accounts.get(user).get('senha') == password):
         session['username'] = user
-        return redirect(url_for('edit', user=user))
+        return redirect(url_for('edit'))
     else:
         return redirect(url_for('login'))
 
@@ -93,8 +93,8 @@ def logout():
 
 #-----------------------------------------------------------------------
 
-@app.route('/dashboard/<user>')
-def edit(user):
+@app.route('/dashboard/')
+def edit():
     if 'username' in session:
         user = session['username']
         nome = accounts[user]['nome']
@@ -104,9 +104,8 @@ def edit(user):
     
 #-----------------------------------------------------------------------
 
-@app.route('/dashboard/<user>/save', methods=['PUT'])
+@app.route('/dashboard/save', methods=['PUT'])
 def save_tree():
-    print('aaa')
     return 'aaaaaaaa'
 
 #-----------------------------------------------------------------------
