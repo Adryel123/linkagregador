@@ -16,7 +16,9 @@ export default function Dashboard() {
   useEffect(() => {
     if (!user) return
     database.ref(`users/${user?.id}`).get().then(data => {
-      setLinhas(data.val())
+      if (data.val()) {
+        setLinhas(data.val())
+      }
     })
   }, [user])
 
